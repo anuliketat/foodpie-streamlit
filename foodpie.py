@@ -70,7 +70,7 @@ if login:
     st.info(f'Logged in as "{user}"')
     u = user_data[user_data['user_id']==user]
     st.write('')
-    my_expander = st.beta_expander("Show user data")
+    my_expander = st.expander("Show user data")
     with my_expander:
         st.write(u.head(20))
     st.write('')
@@ -78,34 +78,4 @@ if login:
     st.subheader(f'Serving Top 10 Recommendations to user {user}')
     recoms = recom(user, food_profiles, user_data, food_ids_list)
     st.write(recoms)
-    #col1, col2 = st.beta_columns(2)
-
-
-
-# myclient = pymongo.MongoClient("mongodb://localhost:27017/")
-# db_main = myclient["recom"]
-
-# def get_data()
-# pipeline1 = [
-#                 {'$match': {'date': {'$gt':'2016-01-01'}}},
-#                 {'$project': {
-#                                 'date': 1,
-#                                 'recipe_id':1,
-#                                 'user_id':1,
-#                                 'rating':1
-#                             }
-#                 },
-#                 {'$sort': {'date':-1}}
-#             ]
-
-
-# users, items, time, ratings = [], [], [], []
-# for item in db_main.orders_data.aggregate(pipeline1):
-#     users.append(item.get('user_id'))
-#     items.append(item.get('recipe_id'))
-#     time.append(item.get('date'))
-#     ratings.append(item.get('rating'))
-# item_data = pd.DataFrame({'user_id':users, 'recipe_id':items, 'time':time, 'rating':ratings})
-# items_list = item_data['recipe_id'].unique()
-# print(item_data.shape)
-# item_data.head()
+  
